@@ -34,14 +34,89 @@ class _MyHomepageState extends State<MyHomepage> {
   List images = [
     // 'assets/slide4.jpg',
     // 'assets/slide5.jpg',
-    // 'assets/slide6.jpg',
-    // 'assets/slide7.jpg',
     'assets/slide8.jpg',
     'assets/slide9.jpg',
     'assets/slide.jpg',
     'assets/slide2.jpg',
     'assets/slide3.jpg',
   ];
+  List images1 =[
+    {
+      'name' : 'Desiccator',
+      'image' : 'assets/DESICCATOR.png',
+    },
+    {
+      'name' : 'Diagnostics',
+      'image' :  'assets/DIAGNOSTICS.png',
+    },
+    {
+      'name' : 'Hematology',
+      'image' : 'assets/hematology.jpg',
+    },
+    {
+      'name' : 'Micro tube range',
+      'image' : 'assets/micro_tube_range.jpg',
+    },
+    {
+      'name' : 'Sample collection',
+      'image' : 'assets/simple_collection.jpg',
+    },
+  ];
+  List MedicalSupply =[
+    {
+      'name' : 'Desiccator',
+      'image' : 'assets/DESICCATOR.png',
+    },
+    {
+      'name' : 'Diagnostics',
+      'image' :  'assets/DIAGNOSTICS.png',
+    },
+    {
+      'name' : 'Ecg accessories',
+      'image' : 'assets/ECG ACCESSORIES.png',
+    },
+    {
+      'name' : 'Dressings',
+      'image' : 'assets/DRESSINGS.png',
+    },
+    {
+      'name' : 'Dressing strips',
+      'image' : 'assets/DRESSING STRIPS.png',
+    },
+  ];
+  List DentalSupply =[
+    {
+      'name' : 'Zhermack',
+      'image' : 'assets/ZHERMACK.png',
+    },
+    {
+      'name' : 'Aidal plus',
+      'image' :  'assets/AIDAL PLUS.png',
+    },
+    {
+      'name' : 'Aqium hand gel',
+      'image' : 'assets/AQIUM HAND GEL.png',
+    },
+    {
+      'name' : 'Bactol alcohol gel',
+      'image' : 'assets/BACTOL ALCOHOL GEL.png',
+    },
+    {
+      'name' : 'Bd hypodermic needless ',
+      'image' : 'assets/BD HYPODERMIC NEEDLESS.jpg',
+    },
+
+  ];
+
+
+TextStyle font=const TextStyle(
+    color: MyColor.primary_bule,
+  fontSize: 13,
+    fontWeight:FontWeight.w300
+);
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +124,7 @@ class _MyHomepageState extends State<MyHomepage> {
     w = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: MyColor.PrimaryDarkColor,
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.white,
@@ -65,7 +141,7 @@ class _MyHomepageState extends State<MyHomepage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>   MySearch()),
+                MaterialPageRoute(builder: (context) => MySearch()),
               );
             },
           ),
@@ -118,17 +194,199 @@ class _MyHomepageState extends State<MyHomepage> {
                     viewportFraction: 0.8,
                   ),
                 ),
-                ListView.builder(
-                  itemCount: images.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Image(
-                          image: AssetImage(images[index]), fit: BoxFit.cover, height: 150),
-                    );
-                  },
-                )
+                Column(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 10.0),
+                          padding: const EdgeInsets.all(8.0),
+                          child:  Text('Lab Supply',style: font),
+
+                        ))
+                  ],
+                ),
+                SizedBox(
+                  height: h*0.13,
+
+                  child: ListView.builder(
+                    reverse: true,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: images1.length,
+                    itemBuilder: (context, position) {
+
+                      return Container(
+                        width: w*0.30,
+                        padding: const EdgeInsets.all(8.0),
+                        margin: const EdgeInsets.all(1.0),
+                        decoration:  BoxDecoration(
+                          color: MyColor.white,
+
+                          // border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:  [
+                              Image.asset(images1[position]['image'], scale: 6,),
+                              const SizedBox(
+                                height: 5,
+                              ),
+
+                               Text(images1[position]['name'], style: font)
+                            ],
+                          ),
+                          // child: Image.asset(images[position]),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Column(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 10.0),
+                          padding: const EdgeInsets.all(8.0),
+                          child:Text('Medical Supply',style: font),
+                        ))
+                  ],
+                ),
+                SizedBox(
+                  height:h*0.13,
+                  child: ListView.builder(
+                    reverse: true,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: MedicalSupply.length,
+                    itemBuilder: (context, position) {
+                      return Container(
+                        width: w*0.30,
+                        padding: const EdgeInsets.all(8.0),
+                        margin: const EdgeInsets.all(1.0),
+                        decoration:  BoxDecoration(
+                          color: MyColor.white,
+
+                          // border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(MedicalSupply[position]['image'], scale: 8,
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(MedicalSupply[position]['name'],textAlign:TextAlign.center,style: font)
+
+                            ],
+                          ),
+                          // child: Image.asset(images[position]),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Column(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 10.0),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Dental Supply',style: font),
+
+                        ))
+                  ],
+                ),
+                SizedBox(
+                  height: h*0.13,
+                  child: ListView.builder(
+                    reverse: true,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: DentalSupply.length,
+                    itemBuilder: (context, position) {
+                      return Container(
+                        width: w*0.30,
+                        padding: const EdgeInsets.all(8.0),
+                        margin: const EdgeInsets.all(1.0),
+                        decoration: BoxDecoration(
+                          color: MyColor.white,
+
+                          // border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(DentalSupply[position]['image'], scale: 8,),
+                               const SizedBox(
+
+                                height: 5,
+                              ),
+                              Text(DentalSupply[position]['name'],textAlign: TextAlign.center,style:
+                          font),
+
+                            ],
+                          ),
+                          // child: Image.asset(images[position]),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                    margin: const EdgeInsets.only(top: 10.0),
+                    padding: const EdgeInsets.all(8.0),
+                  child:
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children:  [
+
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.white,
+
+                      child: Image.asset('assets/like.png',height: 20,width: 20,),
+                  ),
+
+                      // IconButton(icon: ImageIcon(AssetImage('assets/like.png'), size: 20,) , onPressed: null),
+                     const SizedBox(
+                       width: 10,
+                     ),
+                     // Defaults to a flex of one.
+                       Center(child: Text('Rate Your Experience',textAlign: TextAlign.center,style:font)),
+                      const Spacer(flex: 1),
+                      Text('VIEW MORE',style: font),
+                    ],
+                  )
+
+
+                  ),
+
+
+
+
+
+
+                // ListTile(
+                //   leading:
+                //     Image.asset('assets/like.png',),
+                //   title: const Text('Rate Your Experience'),
+                //   trailing: const Text('VIEW MORE'),
+                //   textColor: MyColor.primary_bule,
+                //   onTap: () {
+                //     Navigator.pop(context);
+                //   },
+                // ),
               ],
             ),
           )),
