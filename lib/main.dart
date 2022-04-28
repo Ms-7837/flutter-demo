@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:demo_flutter/Bottom_sheet.dart';
 import 'package:demo_flutter/Search.dart';
 import 'package:demo_flutter/utils/MyColor.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,13 +9,16 @@ import 'package:demo_flutter/Cart.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 
+import 'Help.dart';
+
+
 void main() => runApp(MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.white,
         accentColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
-      home: MyHomepage(appTitle: 'appTitle'),
+      home: BottomNavigation(),
     ));
 
 class MyHomepage extends StatefulWidget {
@@ -30,7 +34,7 @@ class _MyHomepageState extends State<MyHomepage> {
   var h;
 
   var w;
-
+  final int _selectedIndex = 0;
   List images = [
     // 'assets/slide4.jpg',
     // 'assets/slide5.jpg',
@@ -116,7 +120,11 @@ TextStyle font=const TextStyle(
 );
 
 
-
+  void _onItemTapped(int index) {
+    //   setState(() {
+    //     _selectedIndex = index;
+    //   });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -153,10 +161,27 @@ TextStyle font=const TextStyle(
                 context,
                 MaterialPageRoute(builder: (context) => const Cart()),
               );
+             /* Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BottomNavigation()),
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Help()),
+
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Sos()),
+
+              );*/
             },
           )
         ],
       ),
+
+
+
       body: SizedBox(
           height: h,
           width: w,
@@ -390,6 +415,8 @@ TextStyle font=const TextStyle(
               ],
             ),
           )),
+
+
       drawer: Drawer(
         child: ListView(
           children: [
