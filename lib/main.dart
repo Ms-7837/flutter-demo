@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:demo_flutter/Bottom_sheet.dart';
+import 'package:demo_flutter/Lab.dart';
 import 'package:demo_flutter/Search.dart';
 import 'package:demo_flutter/utils/MyColor.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +10,11 @@ import 'package:demo_flutter/Cart.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 
+import 'Bottom_cart.dart';
+import 'Dental.dart';
 import 'Help.dart';
+import 'Medical.dart';
+import 'menu/Browse.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -110,6 +115,7 @@ class _MyHomepageState extends State<MyHomepage> {
       'image' : 'assets/BD HYPODERMIC NEEDLESS.jpg',
     },
 
+
   ];
 
 
@@ -118,6 +124,8 @@ TextStyle font=const TextStyle(
   fontSize: 13,
     fontWeight:FontWeight.w300
 );
+
+  bool _customTileExpanded = true;
 
 
   void _onItemTapped(int index) {
@@ -131,8 +139,10 @@ TextStyle font=const TextStyle(
     h = MediaQuery.of(context).size.height;
     w = MediaQuery.of(context).size.width;
 
+    var rofirstot;
     return Scaffold(
       backgroundColor: MyColor.PrimaryDarkColor,
+
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.white,
@@ -159,7 +169,7 @@ TextStyle font=const TextStyle(
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Cart()),
+                MaterialPageRoute(builder: (context) =>  Bottom_cart()),
               );
              /* Navigator.push(
                 context,
@@ -241,29 +251,39 @@ TextStyle font=const TextStyle(
                     itemCount: images1.length,
                     itemBuilder: (context, position) {
 
-                      return Container(
-                        width: w*0.30,
-                        padding: const EdgeInsets.all(8.0),
-                        margin: const EdgeInsets.all(1.0),
-                        decoration:  BoxDecoration(
-                          color: MyColor.white,
+                      return InkWell(
+                        onTap: (){
+                          print("hello");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  const Lab()),
+                          );
 
-                          // border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children:  [
-                              Image.asset(images1[position]['image'], scale: 6,),
-                              const SizedBox(
-                                height: 5,
-                              ),
+                        },
+                        child: Container(
+                          width: w * 0.30,
+                          padding: const EdgeInsets.all(8.0),
+                          margin: const EdgeInsets.all(1.0),
+                          decoration:  BoxDecoration(
+                            color: MyColor.white,
 
-                               Text(images1[position]['name'], style: font)
-                            ],
+                            // border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          // child: Image.asset(images[position]),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children:  [
+                                Image.asset(images1[position]['image'], scale: 6,),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+
+                                 Text(images1[position]['name'], style: font)
+                              ],
+                            ),
+                            // child: Image.asset(images[position]),
+                          ),
                         ),
                       );
                     },
@@ -288,32 +308,41 @@ TextStyle font=const TextStyle(
                     scrollDirection: Axis.horizontal,
                     itemCount: MedicalSupply.length,
                     itemBuilder: (context, position) {
-                      return Container(
-                        width: w*0.30,
-                        padding: const EdgeInsets.all(8.0),
-                        margin: const EdgeInsets.all(1.0),
-                        decoration:  BoxDecoration(
-                          color: MyColor.white,
+                      return InkWell(
 
-                          // border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(MedicalSupply[position]['image'], scale: 8,
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(MedicalSupply[position]['name'],textAlign:TextAlign.center,style: font)
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Medical()),
+                        );
+                      },
+                        child: Container(
+                          width: w*0.30,
+                          padding: const EdgeInsets.all(8.0),
+                          margin: const EdgeInsets.all(1.0),
+                          decoration:  BoxDecoration(
+                            color: MyColor.white,
 
-                            ],
+                            // border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
                           ),
-                          // child: Image.asset(images[position]),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(MedicalSupply[position]['image'], scale: 8,
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Text(MedicalSupply[position]['name'],textAlign:TextAlign.center,style: font)
+
+                              ],
+                            ),
+                            // child: Image.asset(images[position]),
+                          ),
                         ),
-                      );
+                        );
                     },
                   ),
                 ),
@@ -337,31 +366,40 @@ TextStyle font=const TextStyle(
                     scrollDirection: Axis.horizontal,
                     itemCount: DentalSupply.length,
                     itemBuilder: (context, position) {
-                      return Container(
-                        width: w*0.30,
-                        padding: const EdgeInsets.all(8.0),
-                        margin: const EdgeInsets.all(1.0),
-                        decoration: BoxDecoration(
-                          color: MyColor.white,
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Dental()),
+                          );
+                        },
 
-                          // border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(DentalSupply[position]['image'], scale: 8,),
-                               const SizedBox(
+                        child: Container(
+                          width: w*0.30,
+                          padding: const EdgeInsets.all(8.0),
+                          margin: const EdgeInsets.all(1.0),
+                          decoration: BoxDecoration(
+                            color: MyColor.white,
 
-                                height: 5,
-                              ),
-                              Text(DentalSupply[position]['name'],textAlign: TextAlign.center,style:
-                          font),
-
-                            ],
+                            // border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          // child: Image.asset(images[position]),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(DentalSupply[position]['image'], scale: 8,),
+                                 const SizedBox(
+
+                                  height: 5,
+                                ),
+                                Text(DentalSupply[position]['name'],textAlign: TextAlign.center,style:
+                            font),
+
+                              ],
+                            ),
+                            // child: Image.asset(images[position]),
+                          ),
                         ),
                       );
                     },
@@ -442,93 +480,94 @@ TextStyle font=const TextStyle(
                     ),
                   ],
                 )),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('Browse Category'),
-              trailing: Image.asset(
-                'assets/arrow.png',
-                scale: 35,
+            ExpansionTile(
+
+              title:  const Text('Menu'),
+              subtitle:  const Text('Category'),
+              trailing: Icon(_customTileExpanded ? Icons.arrow_drop_down : Icons.arrow_drop_up,
               ),
-              textColor: MyColor.primary_bule,
-              onTap: () {
-                Navigator.pop(context);
+              onExpansionChanged: (bool expanded) {
+                setState(() => _customTileExpanded = expanded);
               },
+              children:  <Widget>[
+                ListTile(
+                  leading:  Icon(Icons.language),
+                  title:  Text('Browse Category'),
+                  trailing: Image.asset('assets/foreword.png', scale: 15,),
+                  textColor: MyColor.primary_bule,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Browse()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Lab Supply'),
+                  trailing: Image.asset('assets/foreword.png', scale: 15),
+                  textColor: MyColor.primary_bule,
+                  onTap: () {
+                    Navigator. pop(context);
+                  },
+                  // onTap: () => Navigator.of(context).pushNamed(rofirstot.routeName),
+                ),
+
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Lab Equipment'),
+                  trailing: Image.asset('assets/foreword.png', scale: 15), textColor: MyColor.primary_bule,
+
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Medical Supply'),
+    trailing: Image.asset('assets/foreword.png', scale: 15),
+
+                  textColor: MyColor.primary_bule,
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Medical Equipment'),
+                  trailing: Image.asset('assets/foreword.png', scale: 15),
+                  textColor: MyColor.primary_bule,
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Dental Supply '),
+                  trailing: Image.asset('assets/foreword.png', scale: 15),
+                  textColor: MyColor.primary_bule,
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('First Aid Supplies'),
+                  trailing: Image.asset('assets/foreword.png', scale: 15),
+                  textColor: MyColor.primary_bule,
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+
             ),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('Lab Supply'),
-              trailing: Image.asset(
-                'assets/arrow.png',
-                scale: 35,
-              ),
-              textColor: MyColor.primary_bule,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('Lab Equipment'),
-              trailing: Image.asset(
-                'assets/arrow.png',
-                scale: 35,
-              ),
-              textColor: MyColor.primary_bule,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('Medical Supply'),
-              trailing: Image.asset(
-                'assets/arrow.png',
-                scale: 35,
-              ),
-              textColor: MyColor.primary_bule,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('Medical Equipment'),
-              trailing: Image.asset(
-                'assets/arrow.png',
-                scale: 35,
-              ),
-              textColor: MyColor.primary_bule,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('Dental Supply '),
-              trailing: Image.asset(
-                'assets/arrow.png',
-                scale: 35,
-              ),
-              textColor: MyColor.primary_bule,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('First Aid Supplies'),
-              trailing: Image.asset(
-                'assets/arrow.png',
-                scale: 35,
-              ),
-              textColor: MyColor.primary_bule,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
+
+
           ],
         ),
       ),
     );
   }
 }
+
