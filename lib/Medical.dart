@@ -63,20 +63,48 @@ class _MedicalState extends State<Medical> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text("Medical Supply",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: MyColor.primary_bule,
-            fontSize: 20),),
+          style: TextStyle(fontWeight: FontWeight.bold, color: MyColor.primary_bule, fontSize: 20),),
       ),
       body: GridView.builder(
+        physics: BouncingScrollPhysics(),
         itemCount: 10,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 3/4,
             crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
-          return Card(
-            child: GridTile(
-              footer: Text(MedicalSupply[index]['name']),
-              child: Image.asset(MedicalSupply[index]['image']), //just for testing, will fill with image later
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              child: Container(
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+
+                    Image.asset(MedicalSupply[index]['image']),
+                    Text(MedicalSupply[index]['name']),
+                    Column(
+                      // alignment: Alignment.topCenter,
+                      // fit: StackFit.passthrough,
+                      // clipBehavior: Clip.antiAliasWithSaveLayer,
+                      // // overflow: Overflow.visible,
+                      children: [
+                     Text(
+                      'Aaron A940',
+                      style:  TextStyle(
+                        fontSize: 10.0,
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                      ),
+                      ),
+                        SizedBox(height: 3,),
+                        Text('\u0024215.00– \u0024369.00', style: new TextStyle(fontSize: 10.0, fontFamily: 'Roboto', color: Colors.black,),
+                        ),
+                      ],
+                    ),
+                  ],
+
+                ),
+              ),
             ),
           );
         },

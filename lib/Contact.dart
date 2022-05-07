@@ -214,7 +214,7 @@ class _ContactState extends State<Contact> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         const Text(
-                          " Rajes",
+                          " Rajesh",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
@@ -222,7 +222,7 @@ class _ContactState extends State<Contact> {
                           ),
                         ),
                         Text(
-                          "   +61 420 839 919",
+                          "+61 420 839 919",
                           style: textFont,
                         ),
                       ],
@@ -257,11 +257,13 @@ class _ContactState extends State<Contact> {
                           ),
                         ),
                         Text(
-                          "     +61 426 475 114",
+                          "+61 426 475 114",
                           style: textFont,
                         ),
                       ],
                     ),
+
+
                   ),
                   const SizedBox(height: 25),
                   Container(

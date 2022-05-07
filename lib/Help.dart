@@ -37,7 +37,7 @@ class _HelpState extends State<Help> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 padding: const EdgeInsets.only(left: 10),
                 width: w,

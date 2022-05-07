@@ -76,15 +76,47 @@ class _LabState extends State<Lab> {
         ),
       ),
       body: GridView.builder(
+        physics: const BouncingScrollPhysics(),
         itemCount: 10,
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: 3/4,
+            crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
-          return Card(
-            child: GridTile(
-              footer: Text(images1[index]['name']),
-              child: Image.asset(images1[index]
-                  ['image']), //just for testing, will fill with image later
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+
+                    Image.asset(images1[index]['image']),
+                    Text(images1[index]['name']),
+                    Column(
+                      // alignment: Alignment.topCenter,
+                      // fit: StackFit.passthrough,
+                      // clipBehavior: Clip.antiAliasWithSaveLayer,
+                      // // overflow: Overflow.visible,
+                      children: const [
+                        Center(
+                          child: Text(
+                            'Vacumed Tube with Sodium Citrate 3,2 % for ESR',
+                            style:  TextStyle(
+                              fontSize: 10.0,
+                              fontFamily: 'Roboto',
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        // SizedBox(height: 3,),
+                        // Text('Vacumed Tube with Sodium Citrate 3,2 % for ESR', style: new TextStyle(fontSize: 10.0, fontFamily: 'Roboto', color: Colors.black,),
+                        // ),
+                      ],
+                    ),
+                  ],
+
+                ),
+              ),
             ),
           );
         },
