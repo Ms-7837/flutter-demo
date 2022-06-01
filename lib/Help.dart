@@ -57,8 +57,8 @@ class _HelpState extends State<Help> {
                 endIndent: 20,
                 color: Colors.grey,
               ),
-              const SizedBox(
-                height: 10,
+             SizedBox(
+                height: 15,
               ),
               Container(
                 child: Column(
@@ -81,14 +81,14 @@ class _HelpState extends State<Help> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              // const SizedBox(
+              //   height: 5,
+              // ),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: const TextField(
-                  maxLength: 10,
+                  maxLength: 15,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(
@@ -97,9 +97,12 @@ class _HelpState extends State<Help> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              // const SizedBox(
+              //   height: 5,
+              // ),
+
+
+
               Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,14 +124,14 @@ class _HelpState extends State<Help> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              // const SizedBox(
+              //   height: 2,
+              // ),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: const TextField(
-                  maxLength: 10,
+                  maxLength: 20,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(
@@ -138,9 +141,9 @@ class _HelpState extends State<Help> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              // const SizedBox(
+              //   height: 15,
+              // ),
               Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +170,7 @@ class _HelpState extends State<Help> {
               // ),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 30),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 // height: maxLines * 24.0,
                 child: TextFormField(
                   keyboardType: TextInputType.multiline,
@@ -193,7 +196,7 @@ class _HelpState extends State<Help> {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                     primary: MyColor.primary_bule,
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                     textStyle:
                         const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               ),

@@ -3,6 +3,8 @@ import 'package:demo_flutter/Bottom_cart.dart';
 import 'package:demo_flutter/Help.dart';
 import 'package:demo_flutter/Contact.dart';
 import 'package:demo_flutter/main.dart';
+import 'package:demo_flutter/utils/MyColor.dart';
+import 'package:demo_flutter/utils/User.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -21,6 +23,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
       const TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static final List _widgetOptions = [
     MyHomepage(),
+    User(),
     Contact(),
     Help(),
     Bottom_cart(),
@@ -47,21 +50,29 @@ class _BottomNavigationState extends State<BottomNavigation> {
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/home.png',
-              scale: 20,
-              color: Colors.black,
+              height: 30,
+              color: MyColor.primary_bule,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/contacts.png',
-              scale: 20,
-              color: Colors.black,
+              'assets/users.png',
+              height:  30,
+              color: MyColor.primary_bule,
+            ),
+            label: 'User',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset(
+              'assets/contact.png',
+              height:  30,
+              color: MyColor.primary_bule,
             ),
             label: 'Contact us',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/help.png',scale: 20,color: Colors.black,),
+            icon: Image.asset('assets/baseline_help_black_24dp.png',height: 30, color: MyColor.primary_bule,),
             label: 'Help',
 
           ),
@@ -69,7 +80,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             icon: Image.asset(
               'assets/cart.png',
               scale: 20,
-              color: Colors.black,
+              color: MyColor.primary_bule,
             ),
             label: 'Cart',
           ),

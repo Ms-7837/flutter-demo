@@ -19,6 +19,7 @@ import 'menu/Browse.dart';
 void main() => runApp(MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.white,
+        fontFamily: 'Poppins',
         accentColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
@@ -159,6 +160,8 @@ class _MyHomepageState extends State<MyHomepage> {
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark,
+
         ),
         backgroundColor: Colors.white,
         titleTextStyle: const TextStyle(color: Colors.black),
@@ -287,7 +290,9 @@ class _MyHomepageState extends State<MyHomepage> {
                                 const SizedBox(
                                   height: 5,
                                 ),
-                                Text(images1[position]['name'], style:  fontcolor)
+                                Text(images1[position]['name'],
+                                    maxLines: 1,
+                                    style:  fontcolor)
                               ],
                             ),
                             // child: Image.asset(images[position]),
@@ -345,6 +350,7 @@ class _MyHomepageState extends State<MyHomepage> {
                                   height: 5,
                                 ),
                                 Text(MedicalSupply[position]['name'],
+                                    maxLines: 1,
                                     textAlign: TextAlign.center, style:  fontcolor)
                               ],
                             ),
@@ -403,6 +409,7 @@ class _MyHomepageState extends State<MyHomepage> {
                                   height: 5,
                                 ),
                                 Text(DentalSupply[position]['name'],
+                                    maxLines: 1,
                                     textAlign: TextAlign.center, style:  fontcolor),
                               ],
                             ),
@@ -443,6 +450,16 @@ class _MyHomepageState extends State<MyHomepage> {
                     )),
 
                 // ListTile(
+
+
+
+
+
+
+
+
+
+
                 //   leading:
                 //     Image.asset('assets/like.png',),
                 //   title: const Text('Rate Your Experience'),

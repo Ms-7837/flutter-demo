@@ -88,14 +88,7 @@ class _MedicalState extends State<Medical> {
                       // clipBehavior: Clip.antiAliasWithSaveLayer,
                       // // overflow: Overflow.visible,
                       children: [
-                     Text(
-                      'Aaron A940',
-                      style:  TextStyle(
-                        fontSize: 10.0,
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                      ),
-                      ),
+                     Text('Aaron A940', style:  TextStyle(fontSize: 10.0, fontFamily: 'Roboto', color: Colors.black,),),
                         SizedBox(height: 3,),
                         Text('\u0024215.00– \u0024369.00', style: new TextStyle(fontSize: 10.0, fontFamily: 'Roboto', color: Colors.black,),
                         ),
